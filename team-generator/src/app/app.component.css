@@ -10,10 +10,22 @@ h1{
 }
 
 .container{
-    height: 30vh;
     margin: 10% 20%;
     background-color: aquamarine;
     text-align: center;
+    padding: 2%;
+    margin-bottom: 3%;
+}
+
+.card{
+    width: auto;
+    margin: auto;
+}
+
+li{
+    list-style: none;
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
 }
 
 #add-btn{
