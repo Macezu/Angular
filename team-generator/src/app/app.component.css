@@ -1,0 +1,25 @@
+h1{
+    padding-bottom: 1vw;
+}
+
+.team-list{
+    background-color: aliceblue;
+    border-style: solid;
+    margin: 5% 20%;
+    padding: 10%;
+}
+
+.container{
+    height: 30vh;
+    margin: 10% 20%;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+#add-btn{
+    background-color: bisque;
+}
+
+#generate-btn{
+    background-color: aqua;
+}
