@@ -6,8 +6,8 @@
       <li>Seppo Taalasmaa</li>
     </ul>
     <div class="add-members-container">
-      <input type="text" placeholder="Name" />
-      <button id="add-btn">Add</button>
+      <input (input)="onInput(addMemberInput.value)" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" />
+      <button (click)="addToMembers()" id="add-btn">Add</button>
     </div>
 
     <div class="generate-containers">
