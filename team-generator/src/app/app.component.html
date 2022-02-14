@@ -5,7 +5,8 @@
       <li *ngFor="let member of membersArray">{{member}}</li>
     </ul>
     <div class="add-members-container">
-      <input (input)="onInput(addMemberInput.value)" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" />
+      <!-- [value] is an Attribute Directive, could also be [src] or [img] -->
+      <input (input)="onInput(addMemberInput.value)" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" [value]="newMemberInput" />
       <button (click)="addToMembers()" id="add-btn">Add</button>
     </div>
 

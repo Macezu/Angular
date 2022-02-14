@@ -18,6 +18,7 @@ export class AppComponent {
 
   addToMembers = () => {
     this.membersArray.push(this.newMemberInput)
+    this.newMemberInput = ""
     console.log(this.membersArray)
   }
 }
