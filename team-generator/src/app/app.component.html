@@ -2,8 +2,7 @@
   <div class="ui card">
     <h1>Team Generator</h1>
     <ul class="team-list">
-      <li>Ismo Laitela</li>
-      <li>Seppo Taalasmaa</li>
+      <li *ngFor="let member of membersArray">{{member}}</li>
     </ul>
     <div class="add-members-container">
       <input (input)="onInput(addMemberInput.value)" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" />
