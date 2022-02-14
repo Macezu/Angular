@@ -17,13 +17,19 @@ export class AppComponent {
     this.newMemberInput = member
   }
 
+  errorHandler = (errMessage : string) => {
+    this.errorMessage = errMessage
+    setTimeout(() => {
+      this.errorMessage = ""
+    },1500)
+  }
+
   addToMembers = () => {
     if (this.newMemberInput) {
       this.membersArray.push(this.newMemberInput)
       this.newMemberInput = ""
     } else {
-      this.errorMessage = "No name present"
-      setTimeout(() => { this.errorMessage = "" }, 1500)
+      this.errorHandler("No name present")
     }
 
   }
