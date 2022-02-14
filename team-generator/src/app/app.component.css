@@ -28,6 +28,10 @@ li{
     margin-bottom: 1rem;
 }
 
+.error-message{
+    color: red;
+}
+
 #add-btn{
     background-color: bisque;
 }

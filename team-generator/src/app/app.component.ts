@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { NgModel } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -11,15 +11,21 @@ import { NgModel } from '@angular/forms';
 export class AppComponent {
   newMemberInput = ""
   membersArray: string[] = [];
+  errorMessage = ""
 
-  onInput(member:string){
+  onInput(member: string) {
     this.newMemberInput = member
   }
 
   addToMembers = () => {
-    this.membersArray.push(this.newMemberInput)
-    this.newMemberInput = ""
-    console.log(this.membersArray)
+    if (this.newMemberInput) {
+      this.membersArray.push(this.newMemberInput)
+      this.newMemberInput = ""
+    } else {
+      this.errorMessage = "No name present"
+      setTimeout(() => { this.errorMessage = "" }, 1500)
+    }
+
   }
 }
 
