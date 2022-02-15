@@ -30,6 +30,7 @@ li{
 
 .error-message{
     color: red;
+    font-style: italic;
 }
 
 #add-btn{
