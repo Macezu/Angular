@@ -6,8 +6,8 @@
     </ul>
     <div class="add-members-container">
       <!-- [value] is an Attribute Directive, could also be [src] or [img] -->
-      <input (input)="onInput(addMemberInput.value)" [type]="false" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" [value]="newMemberInput" />
-      <button (click)="addToMembers()" id="add-btn">Add</button>
+      <input (input)="onInput(addMemberInput.value)" [autofocus]  [type]="false" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" [value]="newMemberInput" />
+      <button (click)="addToMembers()" (keyup)="addToMembers()" id="add-btn">Add</button>
     </div>
 
     <div class="generate-containers">
