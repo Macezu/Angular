@@ -14,7 +14,7 @@ export class AppComponent {
   membersArray: string[] = [];
   errorMessage = ""
 
-  // Skip strict class checking with "!"" and give it the focus after view created 
+  // Skip strict class checking with "! definite assignment assertion" and give it the focus after view created 
   @ViewChild("addMemberInput") memberInput! : ElementRef
   ngAfterViewInit(){
     this.memberInput.nativeElement.focus()
@@ -45,11 +45,18 @@ export class AppComponent {
     } else if (this.membersArray.length === 0) {
       this.errorHandler("No team members added")
     } else {
-      for (let i = 0; i < this.numberOfTeams; i++) {
-        let rand = Math.floor(Math.random() * (this.membersArray.length - 1))
-        console.log(rand)
+      for (let y=this.membersArray.length; y>= 0;y--){
+        for (let i = 0; i < this.numberOfTeams; i++) {
+          let randPlayer = this.membersArray[Math.floor(Math.random() * (this.membersArray.length - 1))]
+          let arr : string[] = []
+          arr.push(randPlayer)
+          this.membersArray = this.membersArray.filter(x => x !== randPlayer)
+          console.log(randPlayer)
+
+        }
       }
 
+      
     }
   }
 
