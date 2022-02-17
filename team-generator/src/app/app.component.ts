@@ -46,20 +46,24 @@ export class AppComponent {
       this.errorHandler("No team members added")
     } else {
       const originalAmount = this.membersArray.length
-      console.log(Number(this.numberOfTeams) +1)
-      for (let i = 0; i < Math.floor(originalAmount/Number(this.numberOfTeams)) +1; i++) {
-        console.log(this.membersArray.length)
-        if (this.membersArray.length >= 0) {
-          let randPlayer = this.membersArray[Math.floor(Math.random() * (this.membersArray.length - 1))]
-          let arr: string[] = []
-          arr.push(randPlayer)
-          this.membersArray = this.membersArray.filter(x => x !== randPlayer)
-          console.log(randPlayer)
-          console.log(arr)
+      var container = []
+      // Loop until every player is assigned
+      for (let i = 0; i < originalAmount; i++) {
+        // Create and assing players to arrays corresponding team amount
+        for (let y = 0; y < this.numberOfTeams; y++) {
+          console.log(this.membersArray.length)
+          if (this.membersArray.length >= 0) {
+            let randPlayer = this.membersArray[Math.floor(Math.random() * (this.membersArray.length - 1))]
+            var teamArray = new Array();
+            teamArray = [randPlayer , i];
+            container.push(teamArray);
+
+            this.membersArray = this.membersArray.filter(x => x !== randPlayer)
+            console.log(randPlayer)
+          }
         }
-
       }
-
+      console.log(container[0][1]); // access the second value of the first array
     }
   }
 
