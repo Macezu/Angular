@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -13,6 +13,12 @@ export class AppComponent {
   numberOfTeams: Number = 0
   membersArray: string[] = [];
   errorMessage = ""
+
+  // Skip strict class checking with "!"" and give it the focus after view created 
+  @ViewChild("addMemberInput") memberInput! : ElementRef
+  ngAfterViewInit(){
+    this.memberInput.nativeElement.focus()
+  }
 
   onInput(member: string) {
     this.newMemberInput = member
@@ -46,6 +52,8 @@ export class AppComponent {
 
     }
   }
+
+
 
   addToMembers = () => {
     if (this.newMemberInput) {
