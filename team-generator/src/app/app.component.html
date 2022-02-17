@@ -11,8 +11,8 @@
     </div>
 
     <div class="generate-containers">
-      <input [min]="0" type="number" (change)="onChange(teamsInput.value)" #teamsInput placeholder="# of teams" [value]="numberOfTeams" />
-      <button id="generate-btn">Generate</button>
+      <input [min]="1" max="10" type="number" (change)="onChange(teamsInput.value)" #teamsInput placeholder="# of teams" [value]="numberOfTeams > 0 && numberOfTeams" />
+      <button (click)="generateTeams()" id="generate-btn">Generate</button>
     </div>
     <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
   </div>

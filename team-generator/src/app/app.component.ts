@@ -10,7 +10,7 @@ import { Component, NgModule } from '@angular/core';
 
 export class AppComponent {
   newMemberInput = ""
-  numberOfTeams: Number = 0
+  numberOfTeams: Number = -1
   membersArray: string[] = [];
   errorMessage = ""
 
@@ -19,16 +19,23 @@ export class AppComponent {
   }
 
   onChange(amount : string) {
-    if (Number(amount) >= 0) {
-      this.numberOfTeams = Number(amount)
-    } 
+    this.numberOfTeams = Number(amount)
+    console.log(this.numberOfTeams) 
   }
 
   errorHandler = (errMessage : string) => {
     this.errorMessage = errMessage
     setTimeout(() => {
       this.errorMessage = ""
-    },1500)
+    },1800)
+  }
+
+  generateTeams = () => {
+    if (this.numberOfTeams >= 1){
+
+    }else {
+      this.errorHandler("Select the amount of teams to create")
+    }
   }
 
   addToMembers = () => {
