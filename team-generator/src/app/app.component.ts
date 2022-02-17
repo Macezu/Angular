@@ -10,11 +10,18 @@ import { Component, NgModule } from '@angular/core';
 
 export class AppComponent {
   newMemberInput = ""
+  numberOfTeams: Number = 0
   membersArray: string[] = [];
   errorMessage = ""
 
   onInput(member: string) {
     this.newMemberInput = member
+  }
+
+  onChange(amount : string) {
+    if (Number(amount) >= 0) {
+      this.numberOfTeams = Number(amount)
+    } 
   }
 
   errorHandler = (errMessage : string) => {

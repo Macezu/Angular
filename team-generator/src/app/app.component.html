@@ -6,12 +6,12 @@
     </ul>
     <div class="add-members-container">
       <!-- [value] is an Attribute Directive, could also be [src] or [img] -->
-      <input (input)="onInput(addMemberInput.value)" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" [value]="newMemberInput" />
+      <input (input)="onInput(addMemberInput.value)" [type]="false" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" [value]="newMemberInput" />
       <button (click)="addToMembers()" id="add-btn">Add</button>
     </div>
 
     <div class="generate-containers">
-      <input type="text" placeholder="# of teams" />
+      <input [min]="0" type="number" (change)="onChange(teamsInput.value)" #teamsInput placeholder="# of teams" [value]="numberOfTeams" />
       <button id="generate-btn">Generate</button>
     </div>
     <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
