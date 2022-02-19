@@ -68,7 +68,7 @@ export class AppComponent {
   }
 
 
-
+  //Adds members to member array
   addToMembers = () => {
     if (this.newMemberInput) {
       this.membersArray.push(this.newMemberInput)

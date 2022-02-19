@@ -8,6 +8,7 @@
       <!-- [value] is an Attribute Directive, could also be [src] or [img] -->
       <input (input)="onInput(addMemberInput.value)" (keydown.enter)="addToMembers()" [type]="false" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" [value]="newMemberInput"/>
       <button (click)="addToMembers()"  id="add-btn" autofocus>Add</button>
+      <!-- This autofocus does not work, find out why -->
     </div>
 
     <div class="generate-containers">
