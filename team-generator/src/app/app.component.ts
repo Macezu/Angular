@@ -46,15 +46,13 @@ export class AppComponent {
       this.errorHandler("No team members added")
     } else {
       const allMembers = [...this.membersArray]
-      var container = []
       // Loop until every player is assigned
       while (allMembers.length) {
         for (let i = 0; i < this.numberOfTeams; i++) {
           // Create and assing players to arrays corresponding team amount
-          console.log(this.membersArray.length)
-          if (this.membersArray.length >= 0) {
-            let randIndex = Math.floor(Math.random() * (allMembers.length - 1))
-            const member = allMembers.splice(randIndex, 1)[0]
+          let randIndex = Math.floor(Math.random() * (allMembers.length - 1))
+          const member = allMembers.splice(randIndex, 1)[0]
+          if (member) {
             if (this.teams[i]) {
               this.teams[i].push(member)
             } else {
