@@ -1,20 +1,45 @@
 <div class="container">
   <div class="ui card">
     <h1>Team Generator</h1>
-    <ul class="team-list">
-      <li *ngFor="let member of membersArray">{{member}}</li>
+    <ul class="member-list">
+      <li *ngFor="let member of membersArray">{{ member }}</li>
     </ul>
     <div class="add-members-container">
       <!-- [value] is an Attribute Directive, could also be [src] or [img] -->
-      <input (input)="onInput(addMemberInput.value)" (keydown.enter)="addToMembers()" [type]="false" #addMemberInput name="newMemberInput" id="memberName" type="text" placeholder="Name" [value]="newMemberInput"/>
-      <button (click)="addToMembers()"  id="add-btn" autofocus>Add</button>
+      <input
+        (input)="onInput(addMemberInput.value)"
+        (keydown.enter)="addToMembers()"
+        [type]="false"
+        #addMemberInput
+        name="newMemberInput"
+        id="memberName"
+        type="text"
+        placeholder="Name"
+        [value]="newMemberInput"
+      />
+      <button (click)="addToMembers()" id="add-btn" autofocus>Add</button>
       <!-- This autofocus does not work, find out why -->
     </div>
 
     <div class="generate-containers">
-      <input [min]="1" max="10" type="number" (keydown.enter)="generateTeams()" (change)="onChange(teamsInput.value)" #teamsInput placeholder="# of teams" [value]="numberOfTeams > 0 && numberOfTeams" />
+      <input
+        [min]="1"
+        max="10"
+        type="number"
+        (keydown.enter)="generateTeams()"
+        (change)="onChange(teamsInput.value)"
+        #teamsInput
+        placeholder="# of teams"
+        [value]="numberOfTeams > 0 && numberOfTeams"
+      />
       <button (click)="generateTeams()" id="generate-btn">Generate</button>
     </div>
-    <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
+    <div class="comple-teams" *ngFor="let team of teams; let i = index" [attr.data-index] = "i">
+      <h4>Team {{i +1}}</h4>
+      <ul class="team-list" *ngFor="let player of team">
+        <li>{{player}}</li>
+      </ul>
+    </div>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
   </div>
 </div>

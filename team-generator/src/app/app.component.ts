@@ -44,12 +44,16 @@ export class AppComponent {
       this.errorHandler("Select the amount of teams to create")
     } else if (this.membersArray.length === 0) {
       this.errorHandler("No team members added")
-    } else {
+    } else if (this.numberOfTeams > this.membersArray.length) {
+      this.errorHandler("Not enough players for teams, please decrease team amount, or increase player count")
+    }
+    else {
       const allMembers = [...this.membersArray]
+      if (this.teams) this.teams = []
       // Loop until every player is assigned
       while (allMembers.length) {
+        // Create and assing players to arrays corresponding team amount
         for (let i = 0; i < this.numberOfTeams; i++) {
-          // Create and assing players to arrays corresponding team amount
           let randIndex = Math.floor(Math.random() * (allMembers.length - 1))
           const member = allMembers.splice(randIndex, 1)[0]
           if (member) {
@@ -62,6 +66,8 @@ export class AppComponent {
         }
       }
       console.log(this.teams); // access the second value of the first array
+      this.membersArray = []
+      this.numberOfTeams = 0
     }
   }
 

@@ -2,11 +2,18 @@ h1{
     padding-bottom: 1vw;
 }
 
-.team-list{
+.member-list{
     background-color: aliceblue;
     border-style: solid;
     margin: 5% 20%;
     padding: 10%;
+}
+
+.team-list{
+    background-color: cyan;
+    border-style: solid;
+    margin: 5% 10%;
+    padding: 2%;
 }
 
 .container{
@@ -39,4 +46,5 @@ li{
 
 #generate-btn{
     background-color: aqua;
+    margin-bottom: 2%;
 }
