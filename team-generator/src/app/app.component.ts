@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,9 +9,10 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 
 export class AppComponent {
   newMemberInput = ""
-  numberOfTeams: Number = 0
+  numberOfTeams: number | "" = 0
   membersArray: string[] = [];
   errorMessage = ""
+  teams: string[][] = []
 
   // Skip strict class checking with "! definite assignment assertion" and give it the focus after view created 
   @ViewChild("addMemberInput") memberInput!: ElementRef
@@ -40,30 +40,30 @@ export class AppComponent {
   }
 
   generateTeams = () => {
-    if (this.numberOfTeams === 0) {
+    if (this.numberOfTeams === 0 || this.numberOfTeams < 0) {
       this.errorHandler("Select the amount of teams to create")
     } else if (this.membersArray.length === 0) {
       this.errorHandler("No team members added")
     } else {
-      const originalAmount = this.membersArray.length
+      const allMembers = [...this.membersArray]
       var container = []
       // Loop until every player is assigned
-      for (let i = 0; i < originalAmount; i++) {
-        // Create and assing players to arrays corresponding team amount
-        for (let y = 0; y < this.numberOfTeams; y++) {
+      while (allMembers.length) {
+        for (let i = 0; i < this.numberOfTeams; i++) {
+          // Create and assing players to arrays corresponding team amount
           console.log(this.membersArray.length)
           if (this.membersArray.length >= 0) {
-            let randPlayer = this.membersArray[Math.floor(Math.random() * (this.membersArray.length - 1))]
-            var teamArray = new Array();
-            teamArray = [randPlayer , i];
-            container.push(teamArray);
-
-            this.membersArray = this.membersArray.filter(x => x !== randPlayer)
-            console.log(randPlayer)
+            let randIndex = Math.floor(Math.random() * (allMembers.length - 1))
+            const member = allMembers.splice(randIndex, 1)[0]
+            if (this.teams[i]) {
+              this.teams[i].push(member)
+            } else {
+              this.teams[i] = [member]
+            }
           }
         }
       }
-      console.log(container[0][1]); // access the second value of the first array
+      console.log(this.teams); // access the second value of the first array
     }
   }
 
