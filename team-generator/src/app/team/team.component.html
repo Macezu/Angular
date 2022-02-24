@@ -1,1 +1,6 @@
-<p>team works!</p>
+<div class="complete-teams" >
+  <h4>Team {{ index +1 }}</h4>
+  <ul class="team-list">
+    <li *ngFor="let player of team">{{ player }}</li>
+  </ul>
+</div>
